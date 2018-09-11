@@ -17,33 +17,34 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className={theme.navWrapper}>
-        <nav className={theme.nav}>
-          <H1 className={theme.brand}>L</H1>
-          <ul className={theme.horizontal}>
-            <Navigators />
-            <li className={theme.search}>
-              <ServiceSearch
-                placeholder="Start searching..."
-                value={null}
-                onSearch={()=> null}
-                onSelectItem={()=> null}
-                onClickItem={()=> null}
-                hint={this.renderHint()}
-                bottomLinks={()=> null}
-                onPressEnter={()=> null}
-                searchButton="Search"
-                searchButtonStyle={{minWidth: 125}}
-                onSubmit={()=> null}
-                inputLeftIcon={
-                  <SearchIcon />
-                }
-              >
-              </ServiceSearch>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <nav className={theme.nav}>
+        <ul className={theme.horizontal}>
+          <a className={theme.brandLink} href={'http://www.google.com.au'}>
+            <H1 className={theme.brand}>L</H1>
+          </a>
+          <Navigators />
+        </ul>
+        <li className={theme.searchItem}>
+          <ServiceSearch
+            className={theme.search}
+            placeholder="Start searching..."
+            value={null}
+            onSearch={()=> null}
+            onSelectItem={()=> null}
+            onClickItem={()=> null}
+            hint={this.renderHint()}
+            bottomLinks={()=> null}
+            onPressEnter={()=> null}
+            searchButton="Search"
+            searchButtonStyle={{minWidth: 125}}
+            onSubmit={()=> null}
+            inputLeftIcon={
+              <SearchIcon />
+            }
+          >
+          </ServiceSearch>
+        </li>
+      </nav>
     );
   }
 }

@@ -1,32 +1,24 @@
 
 .nav {
   border-bottom: solid 0.3px #3c5cf2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  padding: 10px 40px;
-  box-sizing: border-box;
-  transition: .3s;
+  display: flex;
+  justify-content: space-between;
 }
 
 .brand {
   color: #3c5cf2;
-  padding: 22px 20px;
-  height: 80px;
-  float: left;
-  font-size: 24px;
-  transition: .3s;
+  margin: 0 !important;
+  padding-top: 12px !important;
+  padding-right: 40px !important;
+  cursor: pointer !important;
+}
+
+.brandLink {
+  text-decoration: none;
 }
 
 .horizontal {
-  list-style: none;
-  float: left;
-  margin: 0;
-  padding: 0;
   display: flex;
-  padding: 0px 40px;
 }
 
 .item {
@@ -37,4 +29,17 @@
 .search {
   margin-right: 0;
   padding: 8px;
+}
+
+.searchItem {
+  width: 100%;
+  list-style: none;
+  padding: 24px;
+  max-width: 700px;
+}
+
+@media only screen and (max-width : 320px) {
+  .horizontal .item p{
+    display: none;
+  }
 }
