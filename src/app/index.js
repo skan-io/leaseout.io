@@ -2,16 +2,15 @@ import React from 'react';
 import NavBar from '../nav';
 import theme from './theme.css';
 
+import HomeChart from './chart';
+
 const App = ()=> (
   <div>
     <NavBar />
-    <header>
-      <div className={theme.background}></div>
-      <h1>Header Content</h1>
-    </header>
+    <header />
 
-    <section>
-      <h1>Section Content</h1>
+    <section className={theme.homeChartSection}>
+      <HomeChart />
     </section>
   </div>
 

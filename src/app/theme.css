@@ -1,7 +1,14 @@
 header {
   position: relative;
   height: 300px;
-  overflow: hidden;
+  background-color: #3c5cf2;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 calc(100% - 5vw)
+  );
+  z-index: -1;
 }
 
 .background {
@@ -27,4 +34,17 @@ h1 {
 header h1 {
   position: relative;
   color: white;
+}
+
+.homeChart {
+  background-color: #fff;
+  text-align: center;
+  width: 50%;
+  max-width: 800px;
+  min-width: 600px;
+  margin-top: -150px;
+}
+
+.homeChartSection {
+  text-align: -webkit-center;
 }

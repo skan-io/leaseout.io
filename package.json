@@ -85,7 +85,9 @@
     "whatwg-fetch": "3.0.0"
   },
   "dependencies": {
+    "chart.js": "^2.7.2",
     "office-ui-fabric-react": "6.66.1",
-    "rambler-ui": "3.26.0"
+    "rambler-ui": "3.26.0",
+    "react-chartjs-2": "^2.7.4"
   }
 }
