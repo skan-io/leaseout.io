@@ -1,11 +1,14 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {responsiveStoreEnhancer} from 'redux-responsive';
+import {createLogger} from 'redux-logger';
 import focusEnhancer from 'refocus/enhancer';
 import {window} from './globals';
-// import historyMiddleware from './history/middleware';
 import promiseMiddleware from './middlewares/promise';
 import reducers from './reducers';
+
+
+const loggerMiddleware = createLogger();
 
 
 function getReduxDevTools() {
@@ -31,7 +34,7 @@ export const store = createStore(
     applyMiddleware(
       thunkMiddleware,
       promiseMiddleware,
-      // historyMiddleware,
+      loggerMiddleware,
     ),
     getReduxDevTools()
   )
