@@ -6,12 +6,17 @@
   margin: 80px 0;
 }
 
+.propertyCardTitle {
+  background-color: white !important
+}
+
 .propertyColumns {
   flex: 1;
   margin: 2px;
   padding: 10px;
   margin-left: 30px;
   margin-right: 30px;
+  border-radius: 3px;
 }
 
 @media screen and (max-width: 980px) {

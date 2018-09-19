@@ -22,9 +22,7 @@ const generatePreviewProps = (locations)=> {
   for (const location of locations) {
     previewImageProps.push({
       name: location,
-      previewImageSrc: staticMapByName(
-        location, mapImageWidth*2, mapImageHeight*2, mapImageZoom
-      ),
+      previewImageSrc: 'http://us0.nearmap.com/staticmap?center=-33.474421,151.43291346&size=800x800&zoom=20&date=20150205&httpauth=false&apikey=ZWIzYTljMzUtZTZmYS00ODBiLWExMjEtOTYyMTE1MjVhYWZj',
       width: mapImageWidth,
       height: mapImageHeight
     });
@@ -46,11 +44,12 @@ const createCards = (previews)=> {
       >
         <DocumentCardPreview previewImages={[preview]} />
         <DocumentCardTitle
+          className={theme.propertyCardTitle}
           title={preview.name}
           shouldTruncate={true}
         />
         <DocumentCardActivity
-          activity="Created a few minutes ago"
+          activity="Leased for 1 year"
           people={[{name: 'Annie Lindqvist'}, {name: 'Jeff Jefferson'}]}
         />
       </DocumentCard>

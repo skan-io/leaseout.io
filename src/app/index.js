@@ -10,6 +10,7 @@ import {
 import {createLink} from '../utils/router';
 import NavBar from '../nav';
 import Home from '../home';
+import Footer from '../footer';
 import theme from './theme.css';
 
 
@@ -60,6 +61,7 @@ const App = ({user})=> (
         <Route path="/docs" component={ProtectedDocs} />
         <Route path="/profile" component={ProtectedProfile} /> */}
       </div>
+      <Footer />
     </div>
   </Router>
 );

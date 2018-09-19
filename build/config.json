@@ -1,8 +1,8 @@
 {
-  "version": "dev-02e4b28-20180916010452820",
+  "version": "dev-a3df91e-20180918033625310",
   "nodeEnv": "webpack-dev",
   "deployEnv": "localhost",
   "deployPath": "manage",
   "deployUrl": "https://localhost/manage/",
-  "artifactPath": ".pkg/manage/dev-02e4b28-20180916010452820"
+  "artifactPath": ".pkg/manage/dev-a3df91e-20180918033625310"
 }

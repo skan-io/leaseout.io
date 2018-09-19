@@ -1,7 +1,14 @@
 header {
+  text-align: center;
   position: relative;
-  height: 300px;
-  background-color: #3c5cf2;
+  height: 500px;
+  background: linear-gradient(217deg, rgb(44, 84, 225),
+  rgba(255,0,0,0) 70.71%),
+  linear-gradient(127deg, #6ee6cb,
+  rgba(0,255,0,0) 70.71%),
+  linear-gradient(336deg,
+  rgb(116, 137, 154),
+  rgba(0,0,255,0) 70.71%);
   clip-path: polygon(
     0 0,
     100% 0,
@@ -9,6 +16,11 @@ header {
     0 calc(100% - 5vw)
   );
   z-index: -1;
+}
+
+.headerButton {
+  top: -380px;
+  z-index: 2;
 }
 
 .background {
@@ -42,10 +54,16 @@ header h1 {
   width: 50%;
   max-width: 800px;
   min-width: 600px;
-  margin-top: -150px;
-  border: 1px solid rgb(234, 234, 234);
+  margin-top: -280px;
+  border-radius: 3px;
 }
 
 .homeChartSection {
   text-align: -webkit-center;
+}
+
+.homePropertySection {
+  top: 0;
+-webkit-transform: skewY(-12deg);
+
 }

@@ -34,6 +34,7 @@ const Navigators = ()=> (
     </li>
     <li className={theme.item}>
       <Button
+        disabled
         type='outline'
         className={theme.button}
         icon={<RamblerLoveIcon />}
@@ -43,6 +44,7 @@ const Navigators = ()=> (
     </li>
     <li className={theme.item}>
       <Button
+        disabled
         type='outline'
         className={theme.button}
         icon={<RamblerFinanceIcon />}
