@@ -11,7 +11,6 @@
   text-align: left;
   font: normal 16px sans-serif;
   padding: 45px 50px;
-  clip-path: polygon( 0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw) );
 }
 
 .footerDistributed .footerLeft p {
@@ -34,6 +33,7 @@
   text-decoration: none;
   color: inherit;
   transition: ease .25s;
+  margin-right: 20px;
 }
 
 .footerDistributed .footerRight {
@@ -46,7 +46,6 @@
   display: inline-block;
   width: 35px;
   height: 35px;
-  background-color: #fff;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
@@ -67,7 +66,7 @@
   }
   .footerDistributed .footerRight {
     float: none;
-    margin: 0 auto 20px;
+    margin: 0 auto;
   }
   .footerDistributed .footerLeft p.footerLinks {
     line-height: 1.8;

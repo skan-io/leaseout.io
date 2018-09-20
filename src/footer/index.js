@@ -25,12 +25,22 @@ const Footer = ()=> (
     </div>
     <div className={theme.footerLeft}>
       <p className={theme.footerLinks}>
-        <a className={theme.linkOne} href="#"><H3> About</H3></a>
-        <a href="#"><H3> About</H3></a>
-        <a href="#"><H3> About</H3></a>
-        <a href="#"><H3> About</H3></a>
+        <a className={theme.linkOne} href="#">
+          <Source style={{cursor: 'pointer'}}> Home</Source>
+        </a>
+        <a className={theme.linkOne} href="#">
+          <Source style={{cursor: 'pointer'}}> About</Source>
+        </a>
+        <a className={theme.linkOne} href="#">
+          <Source style={{cursor: 'pointer'}}> Contact</Source>
+        </a>
+        <a className={theme.linkOne} href="#">
+          <Source style={{cursor: 'pointer'}}> FAQ</Source>
+        </a>
+        <b style={{marginLeft: '30px'}}>
+          <Source>Leasout.io &copy; 2018</Source>
+        </b>
       </p>
-      <b><Source>Leasout.io &copy; 2018</Source></b>
     </div>
   </footer>
 );
