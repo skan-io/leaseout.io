@@ -115,7 +115,29 @@ module.exports = ()=> {
 
     module: {
       rules: [{
+        test: /node_modules.+\.css$/,
+        include: [
+          path.resolve('./node_modules/semantic-ui-css')
+        ],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+              sourceMap: !isProduction,
+              minimize: isProduction,
+              importLoaders: true,
+              localIdentName: '[name]_[local]_[hash:base64:5]',
+              camelCase: true
+            }
+          }
+        ]
+      }, {
         test: /(\.css)$/,
+        exclude: [
+          path.resolve('./node_modules/semantic-ui-css')
+        ],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -144,6 +166,14 @@ module.exports = ()=> {
       {
         test: /\.(png|jpg|ico|gif)$/,
         loader: 'url-loader?limit=1'
+      }, {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }]
       }, {
         test: /\.jsx?$/,
         include: [

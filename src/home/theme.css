@@ -1,69 +1,106 @@
 header {
-  text-align: center;
   position: relative;
-  height: 500px;
-  background: linear-gradient(217deg, rgb(44, 84, 225),
-  rgba(255,0,0,0) 70.71%),
-  linear-gradient(127deg, #6ee6cb,
-  rgba(0,255,0,0) 70.71%),
-  linear-gradient(336deg,
-  rgb(116, 137, 154),
-  rgba(0,0,255,0) 70.71%);
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 calc(100% - 5vw)
-  );
-  z-index: -1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 750px;
 }
 
-.headerButton {
-  top: -380px;
-  z-index: 2;
+.mainHome {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  margin-top: -20px;
 }
 
-.background {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+.mainHomeMobile {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  margin-top: -25%;
+  z-index: -1001;
+}
+
+.stripes {
   width: 100%;
   height: 100%;
-  background-color: #3c5cf2;
-  transform: skewY(-4deg);
-  transform-origin: top left;
+  overflow: hidden;
+  -webkit-transform: skewY(-12deg);
+  transform: skewY(-12deg);
+  -webkit-transform-origin: 0;
+  transform-origin: 0;
+  background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
 }
 
-h1 {
-  margin: 0;
-  padding: 100px 0;
-  font: 44px "Arial";
-  text-align: center;
-}
-
-header h1 {
-  position: relative;
-  color: white;
-}
-
-.homeChart {
-  background-color: #fff;
-  text-align: center;
-  width: 50%;
-  max-width: 800px;
-  min-width: 600px;
-  margin-top: -280px;
-  border-radius: 3px;
-}
-
-.homeChartSection {
-  text-align: -webkit-center;
-}
-
-.homePropertySection {
+.firstStripe {
+  width: 33.33333%;
+  left: -16.66666%;
+  background: #53f;
   top: 0;
--webkit-transform: skewY(-12deg);
+  height: 190px;
+  position: absolute;
+  box-sizing: border-box;
+}
 
+.secondStripe {
+  width: 33.33333%;
+  top: 0;
+  left: 16.66666%;
+  right: auto;
+  background: #4553ff;
+  bottom: auto;
+  height: 190px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.thirdStripe {
+  width: 33.33333%;
+  left: 49.99999%;
+  bottom: auto;
+  background: #4f40ff;
+  right: auto;
+  height: 190px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.fourthStripe {
+  width: 33.33333%;
+  top: 380px;
+  right: -16.66666%;
+  background: #25ddf5;
+  height: 190px;
+  position: absolute;
+}
+
+.fifthStripe {
+  width: 33.33333%;
+  bottom: 0;
+  background: #1fa2ff;
+  height: 190px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.intro {
+  width: 100%;
+  height: 760px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.introContent {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 450px;
+  margin-top: -10%;
+}
+
+.iphoneContainer {
+  transform: skew(12deg) rotate(-12deg);
 }

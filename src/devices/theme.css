@@ -1,0 +1,23 @@
+
+.customPhone {
+  width: 338px !important;
+  height: 525px !important;
+  margin-top: 600px;
+  box-shadow: -10px 10px rgba(0,0,0,.4) !important;
+}
+
+.customPhoneCamera {
+  background: #bcbdbd !important;
+}
+
+.customPhoneSpeaker {
+  background: #bcbdbd !important;
+}
+
+.customPhoneScreen {
+  box-shadow: 0 0 0 3px #bcbdbd !important;
+}
+
+.customPhoneSensor {
+  background: #bcbdbd !important;
+}
