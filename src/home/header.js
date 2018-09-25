@@ -1,9 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {Button} from 'semantic-ui-react';
 import Iphone8 from '../devices/iphone-8';
+import Ipad from '../devices/ipad-landscape';
+import {isMobile, isTablet} from '../devices/utils';
 import theme from './theme.css';
 
 
-const Header = ()=> (
+const getThemeForResponsive = (mobile, tablet)=> {
+  console.log({mobile, tablet});
+  if (!mobile && !tablet) {
+    return theme.iphoneContainer;
+  }
+  if (tablet) {
+    return theme.iphoneContainerTablet;
+  }
+};
+
+const Header = ({mobile, tablet})=> (
   <header>
     <div className={theme.stripes}>
       <span className={theme.firstStripe}></span>
@@ -13,21 +28,42 @@ const Header = ()=> (
       <span className={theme.fifthStripe}></span>
     </div>
     <section className={theme.intro}>
-      <div className={theme.introContent}>
+      <div className={mobile ? theme.introContentMobile : theme.introContent}>
         <h1 className={theme.introTitle}>
-          The new way to manage your property
+          The new way to keep your lease in check.
         </h1>
         <br></br>
-        <p>Leasout.io provides a free and easy service for tenants and landlords
+        <p className={theme.introTitle}>
+          Leaseout provides a free and easy service for tenants and landlords
            to keep track of condition reports, damaged assets, bills and rent.
            Keep timestamped evidence, conformant reports and simple logs.
         </p>
+        <Button
+          className={theme.signUpButton}
+          size='huge'
+          as='a' inverted={true} color='purple'>
+          Create Account
+        </Button>
       </div>
-      <div className={theme.iphoneContainer}>
-        <Iphone8 />
-      </div>
+      {!mobile &&
+        <div className={getThemeForResponsive(mobile, tablet)}>
+          <Iphone8 />
+          <Ipad />
+        </div>
+      }
     </section>
   </header>
 );
+Header.propTypes = {
+  mobile: PropTypes.bool,
+  tablet: PropTypes.bool
+};
 
-export default Header;
+
+const mapStateToProps = ({browser, device})=> ({
+  mobile: isMobile(browser),
+  tablet: isTablet(browser, device)
+});
+
+
+export default connect(mapStateToProps)(Header);

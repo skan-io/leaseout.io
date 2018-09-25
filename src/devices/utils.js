@@ -19,4 +19,5 @@ export const isMobile = (browser)=> !browser.greaterThan.small;
 
 //  Use the information we get from react-device (e.g. - the User Agent string)
 //  to determine if we are on a tablet.
-export const isTablet = (device)=> isType(device, 'tablet');
+export const isTablet = (browser, device)=>
+  isType(device, 'tablet') || browser.lessThan.large;

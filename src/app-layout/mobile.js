@@ -25,6 +25,7 @@ const MobileApp = ()=> (
         <Menu.Item as='a'>Sign Up</Menu.Item>
       </Sidebar>
 
+      {/* give pusher and segment z-index = -1 */}
       <Sidebar.Pusher
         dimmed={false}
         onClick={()=> null}
