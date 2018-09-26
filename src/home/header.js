@@ -33,7 +33,7 @@ const Header = ({mobile, tablet})=> (
           The new way to keep your lease in check.
         </h1>
         <br></br>
-        <p className={theme.introTitle}>
+        <p className={theme.introPara}>
           Leaseout provides a free and easy service for tenants and landlords
            to keep track of condition reports, damaged assets, bills and rent.
            Keep timestamped evidence, conformant reports and simple logs.
@@ -41,7 +41,7 @@ const Header = ({mobile, tablet})=> (
         <Button
           className={theme.signUpButton}
           size='huge'
-          as='a' inverted={true} color='purple'>
+          as='a' inverted={false} color='violet'>
           Create Account
         </Button>
       </div>

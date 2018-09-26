@@ -4,6 +4,7 @@ header {
   text-align: center;
   width: 100%;
   height: 850px;
+  margin-top: -120px;
 }
 
 .mainHome {
@@ -94,14 +95,7 @@ header {
 }
 
 .introContent {
-  max-width: 450px;
-  min-width: 266px;
-  margin-bottom: 200px;
-  text-align: left;
-}
-
-.introContent {
-  max-width: 450px;
+  max-width: 600px;
   min-width: 266px;
   margin-bottom: 200px;
   margin-top: 20px;
@@ -109,6 +103,11 @@ header {
 }
 
 .introTitle {
+  color: white !important;
+}
+
+.introPara {
+  max-width: 400px;
   color: white !important;
 }
 
@@ -129,4 +128,5 @@ header {
 .signUpButton {
   margin-top: 30px !important;
   color: white !important;
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.2) !important;
 }

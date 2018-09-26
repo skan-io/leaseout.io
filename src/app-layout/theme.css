@@ -20,7 +20,14 @@
 
 .navContainer {
   border-bottom: none !important;
+  border: none !important;
   margin-top: 12px !important;
+}
+
+.menuContainer {
+  z-index: 100000;
+  width: 80% !important;
+  max-width: 1000px !important;
 }
 
 .mobileNavContainer {

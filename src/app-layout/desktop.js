@@ -20,6 +20,33 @@ const DesktopApp = ()=> (
       onBottomPassedReverse={()=> null}
       className={theme.main}
     >
+      <Menu
+        inverted={true}
+        pointing={true}
+        secondary={true}
+        size='large'
+        className={theme.navContainer}
+      >
+        <Container className={theme.menuContainer}>
+          <Menu.Item as='a' active>Home</Menu.Item>
+          <Menu.Item as='a'>Properties</Menu.Item>
+          <Menu.Item as='a'>Assets</Menu.Item>
+          <Menu.Item as='a'>Reports</Menu.Item>
+          <Menu.Item position='right'>
+            <Button as='a' inverted={true}>
+              Log in
+            </Button>
+            <Button
+              as='a'
+              inverted={true}
+              primary={false}
+              style={{marginLeft: '0.5em'}}
+            >
+              Sign Up
+            </Button>
+          </Menu.Item>
+        </Container>
+      </Menu>
       <Segment
         inverted
         style={{minHeight: 700, padding: '1em 0em'}}
@@ -27,37 +54,15 @@ const DesktopApp = ()=> (
         className={theme.mainSegment}
       >
         <Routes />
-        <Menu
-          fixed={'top'}
-          inverted={true}
-          pointing={true}
-          secondary={true}
-          size='large'
-          className={theme.navContainer}
-        >
-          <Container>
-            <Menu.Item as='a' active>Home</Menu.Item>
-            <Menu.Item as='a'>Properties</Menu.Item>
-            <Menu.Item as='a'>Assets</Menu.Item>
-            <Menu.Item as='a'>Reports</Menu.Item>
-            <Menu.Item position='right'>
-              <Button as='a' inverted={true}>
-                Log in
-              </Button>
-              <Button
-                as='a'
-                inverted={true}
-                primary={false}
-                style={{marginLeft: '0.5em'}}
-              >
-                Sign Up
-              </Button>
-            </Menu.Item>
-          </Container>
-        </Menu>
       </Segment>
+      <Segment
+        inverted
+        style={{minHeight: 300, background: 'transparent !important', zIndex: '-99999'}}
+        vertical
+        className={theme.mainSegment}
+      />
+      <Footer />
     </Visibility>
-    <Footer />
   </Responsive>
 );
 
