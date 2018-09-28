@@ -60,86 +60,116 @@ const HomeContent = ({mobile, tablet, browser})=> (
           textAlign='center'
           className={theme.bottomRow}
         >
-          <Grid.Column className={theme.bottomColumn} style={{textAlign: 'left'}}>
+          <Grid.Column className={theme.bottomColumn} style={{textAlign: 'center'}}>
             <Header as='h3' style={{fontSize: '2em'}} color='blue'>
               <Icon name='user' size='large' color='blue' />
               TENANTS
             </Header>
-            <p style={{fontSize: '1.33em'}}>
-              That is what they all say about us
+            <p className={theme.listHeader}>
+              All in one place. No messy paper trails.
             </p>
-            <List>
+            <List className={theme.listStyle}>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp; Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Condition Report
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp; Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                      &nbsp;&nbsp; Bill Splitter
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Rent Tracker
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Damage Assessment Form
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Tenant Rights Forum
+                  </List.Header>
                 </List.Content>
               </List.Item>
             </List>
             <br />
             <Button icon labelPosition='right'>
               <Icon name='right arrow' />
-              More tenant features
+              More features for tenants
             </Button>
           </Grid.Column>
-          <Grid.Column className={theme.bottomColumn} style={{textAlign: 'left'}}>
+          <Grid.Column className={theme.bottomColumn} style={{textAlign: 'center'}}>
             <Header as='h3' style={{fontSize: '2em'}} color='blue'>
               <Icon name='home' size='large' color='blue' />
               LANDLORDS
             </Header>
-            <p style={{fontSize: '1.33em'}}>
-              <b>Nan</b> Chief Fun Officer Acme Toys
+            <p className={theme.listHeader}>
+              Everything a self-managed landlord needs.
             </p>
-            <List>
+            <List className={theme.listStyle}>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp; Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Condition Report
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp; Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                      &nbsp;&nbsp; Bill Splitter
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Rent Tracker
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Damage Assessment Form
+                  </List.Header>
                 </List.Content>
               </List.Item>
               <List.Item>
                 <List.Content>
-                  <List.Header as='a'><b style={{color: 'green'}}>✔</b> &nbsp;&nbsp;Condition Report</List.Header>
+                  <List.Header as='a' className={theme.listItem}>
+                    <b style={{color: '#15e000'}}>✔</b>
+                     &nbsp;&nbsp; Tenant Rights Forum
+                  </List.Header>
                 </List.Content>
               </List.Item>
             </List>
             <br />
             <Button icon labelPosition='right'>
               <Icon name='right arrow' />
-              More tenant features
+              More features for landlords
             </Button>
           </Grid.Column>
         </Grid.Row>

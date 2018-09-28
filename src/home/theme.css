@@ -229,3 +229,21 @@ header {
   background-color: white;
   position: relative;
 }
+
+.listStyle {
+  text-align: left;
+  padding-left: 120px;
+}
+
+.listHeader {
+  color: #525f7f;
+  margin-left: 0px !important;
+  font-size: 1.33em !important;
+  padding-bottom: 20px !important;
+}
+
+.listItem {
+  font-size: 1.33em;
+  padding-left: 120px;
+  color: #525f7f;
+}
