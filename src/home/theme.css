@@ -98,8 +98,13 @@ header {
   max-width: 600px;
   min-width: 266px;
   margin-bottom: 200px;
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: left;
+}
+
+.introContentMobile {
+  text-align: left;
+  margin-top: 50px;
 }
 
 .introTitle {
@@ -109,6 +114,7 @@ header {
 .introPara {
   max-width: 400px;
   color: white !important;
+  font-size: 1.11em;
 }
 
 .iphoneContainer {
@@ -129,4 +135,97 @@ header {
   margin-top: 30px !important;
   color: white !important;
   box-shadow: 0px 8px 30px rgba(0,0,0,0.2) !important;
+}
+
+.middleSegment {
+  padding-top: 1em;
+  padding-bottom: 8em;
+  border-bottom: none !important;
+}
+
+.middleGrid {
+  width: 100% !important;
+  text-align: center;
+  position: relative;
+  margin: 0 !important;
+}
+
+.middleRow {
+  width: 100% !important;
+  position: relative;
+  text-align: center;
+}
+
+.middleColumn {
+  width: 80% !important;
+  max-width: 1000px !important;
+  text-align: left !important;
+  margin: auto;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  flex-grow: 0 !important;
+}
+
+.middleColumnMobile {
+  width: 80% !important;
+  max-width: 1000px !important;
+  text-align: left !important;
+  margin: auto;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  flex-grow: 0 !important;
+  margin-left: 10% !important;
+}
+
+.middlePara {
+  font-size: 1.33em;
+  color: #525f7f;
+  max-width: 600px;
+  width: 70% !important;
+}
+
+.greyMiddleSection {
+  margin-top: 100px;
+  height: 1200px;
+  width: 100%;
+  position: relative;
+  background-color: rgba(0,0,0,.05);
+  -webkit-transform: skewY(-12deg);
+  transform: skewY(-12deg);
+}
+
+.bottomSegment {
+  width: 100% !important;
+  text-align: center;
+  position: relative;
+  margin-top: -500px !important;
+  padding-bottom: 500px;
+}
+
+.bottomGrid {
+  width: 100% !important;
+  text-align: center;
+  position: relative;
+  margin: 0 !important;
+  margin-top: -500px !important;
+}
+
+.bottomRow {
+  width: 80% !important;
+  text-align: center;
+  position: relative;
+  margin: auto !important;
+}
+
+.bottomColumn {
+  width: 50% !important;
+  max-width: 500px !important;
+  margin: auto;
+}
+
+.whiteBottomSection {
+  height: 700px;
+  width: 100%;
+  background-color: white;
+  position: relative;
 }

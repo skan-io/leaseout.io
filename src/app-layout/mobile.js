@@ -18,9 +18,9 @@ const MobileApp = ()=> (
     <Sidebar.Pushable>
       <Sidebar as={Menu} animation='uncover' inverted vertical visible={false}>
         <Menu.Item as='a' active>Home</Menu.Item>
-        <Menu.Item as='a'>Properties</Menu.Item>
-        <Menu.Item as='a'>Assets</Menu.Item>
-        <Menu.Item as='a'>Reports</Menu.Item>
+        <Menu.Item as='a'>Tenants</Menu.Item>
+        <Menu.Item as='a'>Landlords</Menu.Item>
+        <Menu.Item as='a'>Pricing</Menu.Item>
         <Menu.Item as='a'>Log in</Menu.Item>
         <Menu.Item as='a'>Sign Up</Menu.Item>
       </Sidebar>
@@ -29,21 +29,24 @@ const MobileApp = ()=> (
       <Sidebar.Pusher
         dimmed={false}
         onClick={()=> null}
-        style={{minHeight: '100vh'}}
+        style={{minHeight: '100vh', zIndex: '-1'}}
       >
         <Segment
           inverted
-          style={{minHeight: 350, padding: '1em 0em'}}
+          style={{minHeight: 350, padding: '1em 0em', zIndex: '-1'}}
           vertical
           className={theme.mobileMainSegment}
         >
-          <Container>
+          <Container className={theme.mobileNavContainer}>
             <Menu
               inverted pointing secondary size='large'
-              className={theme.mobileNavContainer}
+              className={theme.mobileMenuContainer}
             >
               <Menu.Item onClick={()=> null}>
                 <Icon name='sidebar' />
+              </Menu.Item>
+              <Menu.Item className={theme.mobileBrand}>
+                <img src='favicon.png' style={{width: '45px'}} />
               </Menu.Item>
               <Menu.Item position='right'>
                 <Button as='a' inverted>Log in</Button>

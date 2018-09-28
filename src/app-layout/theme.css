@@ -30,12 +30,25 @@
   max-width: 1000px !important;
 }
 
-.mobileNavContainer {
+.mobileMenuContainer {
+  margin-top: -6px !important;
   border: none !important;
-  margin-top: 12px !important;
 }
 
 .mainFooter {
   background-color: #bcbdbd !important;
   bottom: 0 !important;
+  margin-top: 400px !important;
+}
+
+.brand {
+  margin-bottom: -20px !important;
+  margin-left: -14px !important;
+  width: 90px !important;
+}
+
+.mobileBrand {
+  margin-bottom: -12px !important;
+  margin-left: -14px !important;
+  width: 90px !important;
 }

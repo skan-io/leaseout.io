@@ -9,7 +9,6 @@ import theme from './theme.css';
 
 
 const getThemeForResponsive = (mobile, tablet)=> {
-  console.log({mobile, tablet});
   if (!mobile && !tablet) {
     return theme.iphoneContainer;
   }
@@ -30,13 +29,13 @@ const Header = ({mobile, tablet})=> (
     <section className={theme.intro}>
       <div className={mobile ? theme.introContentMobile : theme.introContent}>
         <h1 className={theme.introTitle}>
-          The new way to keep your lease in check.
+          The best way to keep your lease in check.
         </h1>
         <br></br>
         <p className={theme.introPara}>
-          Leaseout provides a free and easy service for tenants and landlords
+          LeasePlease provides a free and easy service for tenants and landlords
            to keep track of condition reports, damaged assets, bills and rent.
-           Keep timestamped evidence, conformant reports and simple logs.
+           Keep timestamped evidence, conformant reports and payment records.
         </p>
         <Button
           className={theme.signUpButton}
