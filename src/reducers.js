@@ -5,7 +5,6 @@ import focusReducer from 'refocus/reducer';
 // Application data reducers
 import deviceInfoReducer from './devices/reducer';
 import userReducer from './user/reducer';
-import propertiesReducer from './properties/reducer';
 
 
 export default combineReducers({
@@ -19,6 +18,5 @@ export default combineReducers({
   device: deviceInfoReducer,
 
   // Application data reducers
-  user: userReducer,
-  properties: propertiesReducer
+  user: userReducer
 });

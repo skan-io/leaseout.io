@@ -1,2 +1,2 @@
-# leazy-fe
-Front-end for the leazy application
+# LeasePlease
+Front-end for the LeasePlease application

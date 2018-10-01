@@ -167,14 +167,9 @@ header {
 }
 
 .middleColumnMobile {
-  width: 80% !important;
   max-width: 1000px !important;
   text-align: left !important;
-  margin: auto;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
   flex-grow: 0 !important;
-  margin-left: 10% !important;
 }
 
 .middlePara {
@@ -185,7 +180,7 @@ header {
 }
 
 .greyMiddleSection {
-  margin-top: 100px;
+  margin-top: 3%;
   height: 1200px;
   width: 100%;
   position: relative;
@@ -200,14 +195,25 @@ header {
   position: relative;
   margin-top: -500px !important;
   padding-bottom: 500px;
+  border: none !important;
 }
 
 .bottomGrid {
   width: 100% !important;
   text-align: center;
   position: relative;
-  margin: 0 !important;
+  margin: auto !important;
   margin-top: -500px !important;
+  margin-bottom: 100px !important;
+}
+
+.bottomGridMobile {
+  width: 100% !important;
+  text-align: center;
+  position: relative;
+  margin: auto !important;
+  margin-top: -602px !important;
+  margin-bottom: 100px !important;
 }
 
 .bottomRow {
@@ -224,7 +230,7 @@ header {
 }
 
 .whiteBottomSection {
-  height: 700px;
+  height: 600px;
   width: 100%;
   background-color: white;
   position: relative;
@@ -232,7 +238,9 @@ header {
 
 .listStyle {
   text-align: left;
-  padding-left: 120px;
+  margin-left: 20% !important;
+  max-width: 400px !important;
+  min-width: 200px !important;
 }
 
 .listHeader {
@@ -244,6 +252,64 @@ header {
 
 .listItem {
   font-size: 1.33em;
-  padding-left: 120px;
+  max-width: 400px !important;
+  min-width: 200px !important;
   color: #525f7f;
+}
+
+.nswImage {
+  width: 63% !important;
+  max-width: 230px !important;
+  margin: auto !important;
+  margin-top: 7% !important;
+}
+
+.qldImage {
+  width: 70% !important;
+  max-width: 230px !important;
+  margin: auto !important;
+}
+
+.vicImage {
+  width: 91% !important;
+  max-width: 300px !important;
+  margin-top: 18.1%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.saImage {
+  width: 85% !important;
+  max-width: 280px !important;
+  margin: auto !important;
+}
+
+.jurisdictionGrid {
+  margin-bottom: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: -510px !important;
+  width: 80% !important;
+  text-align: center;
+  max-width: 1000px !important;
+}
+
+.jurisdictionHead {
+  font-size: 2em;
+  margin: auto !important;
+  margin-bottom: 80px !important;
+}
+
+.chartSegment {
+  margin-top: -100px !important;
+  background-color: #f2f2f2 !important;
+  height: 400px;
+  text-align: center;
+}
+
+.chartHead {
+  font-size: 2em;
+  margin: auto !important;
+  margin-bottom: 80px !important;
+  margin-top: 90px !important;
 }

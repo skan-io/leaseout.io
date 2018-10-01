@@ -20,7 +20,9 @@ const setMaxWidth = ()=> {
   }
   const bottomHomeRow = document.getElementById('bottomHomeRow');
   if (bottomHomeRow) {
-    bottomHomeRow.setAttribute('style', 'width: 80% !important; max-width: 1000px !important');
+    bottomHomeRow.setAttribute(
+      'style', 'width: 80% !important; max-width: 1000px !important'
+    );
   }
 };
 
