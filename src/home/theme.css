@@ -156,6 +156,13 @@ header {
   text-align: center;
 }
 
+.middleRowMobile {
+  width: 100% !important;
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+
 .middleColumn {
   width: 80% !important;
   max-width: 1000px !important;
@@ -168,8 +175,8 @@ header {
 
 .middleColumnMobile {
   max-width: 1000px !important;
-  text-align: left !important;
   flex-grow: 0 !important;
+  text-align: center !important;
 }
 
 .middlePara {
@@ -179,8 +186,26 @@ header {
   width: 70% !important;
 }
 
+.middleParaMobile {
+  font-size: 1.33em;
+  color: #525f7f;
+  max-width: 600px;
+  width: 70% !important;
+  margin: auto;
+}
+
 .greyMiddleSection {
-  margin-top: 3%;
+  margin-top: 5%;
+  height: 1200px;
+  width: 100%;
+  position: relative;
+  background-color: rgba(0,0,0,.05);
+  -webkit-transform: skewY(-12deg);
+  transform: skewY(-12deg);
+}
+
+.greyMiddleSectionMobile {
+  margin-top: 8%;
   height: 1200px;
   width: 100%;
   position: relative;
@@ -229,6 +254,13 @@ header {
   margin: auto;
 }
 
+.bottomColumnMobile {
+  width: 50% !important;
+  max-width: 500px !important;
+  margin: auto;
+  margin-bottom: 50px !important;
+}
+
 .whiteBottomSection {
   height: 600px;
   width: 100%;
@@ -253,8 +285,11 @@ header {
 .listItem {
   font-size: 1.33em;
   max-width: 400px !important;
-  min-width: 200px !important;
   color: #525f7f;
+}
+
+.listButton {
+  margin-top: 20px !important;
 }
 
 .nswImage {
@@ -288,10 +323,11 @@ header {
   margin-bottom: 0 !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  margin-top: -510px !important;
+  margin-top: -550px !important;
   width: 80% !important;
   text-align: center;
   max-width: 1000px !important;
+  min-height: 400px;
 }
 
 .jurisdictionHead {
@@ -303,13 +339,38 @@ header {
 .chartSegment {
   margin-top: -100px !important;
   background-color: #f2f2f2 !important;
-  height: 400px;
+  height: 950px;
+  text-align: center;
+}
+
+.chartSegmentMobile {
+  margin-top: -100px !important;
+  background-color: #f2f2f2 !important;
+  height: 665px;
   text-align: center;
 }
 
 .chartHead {
+  width: 80% !important;
   font-size: 2em;
   margin: auto !important;
   margin-bottom: 80px !important;
   margin-top: 90px !important;
+}
+
+.chart {
+  margin: auto !important;
+}
+
+.homeChart {
+  width: 60%;
+  max-width: 800px;
+  min-width: 400px;
+  margin: auto;
+}
+
+.chartButton {
+  margin-top: 100px !important;
+  color: white !important;
+  box-shadow: 0px 8px 30px rgba(0,0,0,0.2) !important;
 }

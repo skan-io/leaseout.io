@@ -6,7 +6,10 @@ import theme from './theme.css';
 
 const Main = ({mobile})=> (
   <Grid columns='equal' stackable className={theme.middleGrid}>
-    <Grid.Row textAlign='center' className={theme.middleRow}>
+    <Grid.Row
+      textAlign='center'
+      className={mobile ? theme.middleRowMobile : theme.middleRow}
+    >
       <Grid.Column
         className={
           mobile ? theme.middleColumnMobile : theme.middleColumn
@@ -16,7 +19,7 @@ const Main = ({mobile})=> (
           <Icon name='mobile alternate' size='large' color='violet' />
            WORKS ON ANY DEVICE
         </Header>
-        <p className={theme.middlePara}>
+        <p className={mobile ? theme.middleParaMobile : theme.middlePara}>
           LeasePlease will work on mobile, desktop or laptop so you
           can access your lease profile any time!
         </p>
@@ -26,7 +29,7 @@ const Main = ({mobile})=> (
           <Icon name='cloud download' size='large' color='violet' />
            AVAILABLE ANYWHERE
         </Header>
-        <p className={theme.middlePara}>
+        <p className={mobile ? theme.middleParaMobile : theme.middlePara}>
           We store all your leases and reports in the cloud
           so you can access it anywhere you might need it.
         </p>

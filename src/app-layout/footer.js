@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {
   Container,
   Grid,
@@ -6,13 +8,14 @@ import {
   List,
   Segment
 } from 'semantic-ui-react';
+import {isMobile} from '../devices/utils';
 import theme from './theme.css';
 
 
-const Footer = ()=> (
+const Footer = ({mobile})=> (
   <Segment
     inverted vertical style={{padding: '5em 0em'}}
-    className={theme.mainFooter}
+    className={mobile ? theme.mainFooterMobile : theme.mainFooter}
   >
     <Container>
       <Grid divided inverted stackable>
@@ -20,27 +23,27 @@ const Footer = ()=> (
           <Grid.Column width={3}>
             <Header inverted as='h4' content='About' />
             <List link inverted>
-              <List.Item as='a'>Sitemap</List.Item>
+              <List.Item as='a'>About Us</List.Item>
               <List.Item as='a'>Contact Us</List.Item>
-              <List.Item as='a'>Religious Ceremonies</List.Item>
-              <List.Item as='a'>Gazebo Plans</List.Item>
+              <List.Item as='a'>Tenants</List.Item>
+              <List.Item as='a'>Landlords</List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={3}>
             <Header inverted as='h4' content='Services' />
             <List link inverted>
-              <List.Item as='a'>Banana Pre-Order</List.Item>
-              <List.Item as='a'>DNA FAQ</List.Item>
-              <List.Item as='a'>How To Access</List.Item>
-              <List.Item as='a'>Favorite X-Men</List.Item>
+              <List.Item as='a'>FAQ</List.Item>
+              <List.Item as='a'>Tutorial Videos </List.Item>
+              <List.Item as='a'>Sign Up</List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={7}>
             <Header as='h4' inverted>
-              Footer Header
+              <img src='favicon.png' style={{width: '45px'}} />
+              LeasePlease
             </Header>
             <p>
-              Extra space for a call to action inside the.
+              The best way to keep your lease in check.
             </p>
           </Grid.Column>
         </Grid.Row>
@@ -48,5 +51,14 @@ const Footer = ()=> (
     </Container>
   </Segment>
 );
+Footer.propTypes = {
+  mobile: PropTypes.bool
+};
 
-export default Footer;
+
+const mapStateToProps = ({browser})=> ({
+  mobile: isMobile(browser)
+});
+
+
+export default connect(mapStateToProps)(Footer);

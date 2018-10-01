@@ -35,7 +35,8 @@ const Header = ({mobile, tablet})=> (
         <p className={theme.introPara}>
           LeasePlease provides a free and easy service for tenants and landlords
            to keep track of condition reports, damaged assets, bills and rent.
-           Keep timestamped evidence, conformant reports and payment records.
+           Keep timestamped evidence, compliant reports and simple
+            payment records.
         </p>
         <Button
           className={theme.signUpButton}

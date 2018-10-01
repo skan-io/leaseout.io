@@ -41,6 +41,12 @@
   margin-top: 0px !important;
 }
 
+.mainFooterMobile {
+  background-color: #bcbdbd !important;
+  bottom: 0 !important;
+  margin-top: -30px !important;
+}
+
 .brand {
   margin-bottom: -20px !important;
   margin-left: -14px !important;

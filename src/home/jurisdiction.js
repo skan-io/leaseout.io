@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Grid, Image} from 'semantic-ui-react';
 import nsw from './nsw.png';
 import vic from './vic.png';

@@ -1,12 +1,13 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Segment, Grid, Header, Icon} from 'semantic-ui-react';
+import {Segment, Grid, Header, Icon, Button} from 'semantic-ui-react';
 import {isMobile, isTablet} from '../devices/utils';
 import Main from './main';
 import Landlord from './landlord';
 import Tenant from './tenant';
 import Jurisdiction from './jurisdiction';
+import Chart from './chart';
 import theme from './theme.css';
 
 
@@ -19,7 +20,11 @@ const HomeContent = ({mobile})=> (
       <Main mobile={mobile} />
     </Segment>
 
-    <section className={theme.greyMiddleSection} />
+    <section
+      className={
+        mobile ? theme.greyMiddleSectionMobile : theme.greyMiddleSection
+      }
+    />
 
     <Segment
       className={theme.bottomSegment}
@@ -35,8 +40,8 @@ const HomeContent = ({mobile})=> (
           textAlign='center'
           className={theme.bottomRow}
         >
-          <Tenant />
-          <Landlord />
+          <Tenant mobile={mobile} />
+          <Landlord mobile={mobile} />
         </Grid.Row>
       </Grid>
     </Segment>
@@ -51,20 +56,30 @@ const HomeContent = ({mobile})=> (
           color='violet'
         >
           <Icon name='list alternate outline' size='large' color='violet' />
-          STATE CONDITION REPORTS
+          STATEWIDE CONDITION REPORTS
         </Header>
         <Jurisdiction />
       </Grid>
     </Segment>
-    <Segment vertical className={theme.chartSegment}>
+    <Segment
+      vertical
+      className={mobile ? theme.chartSegmentMobile : theme.chartSegment}
+    >
       <Header
         as='h3'
         className={theme.chartHead}
-        color='violet'
+        color='blue'
       >
-        <Icon name='chart line' size='large' color='violet' />
+        <Icon name='chart line' size='large' color='blue' />
         INCOME AND COST CHARTS
       </Header>
+      <Chart />
+      <Button
+        className={theme.chartButton}
+        size='large'
+        as='a' inverted={false} color='blue'>
+        Create LeasePlease Account
+      </Button>
     </Segment>
   </Fragment>
 );

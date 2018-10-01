@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Grid, Header, List, Button, Icon} from 'semantic-ui-react';
 import theme from './theme.css';
 
 
-const Tenant = ()=> (
+const Tenant = ({mobile})=> (
   <Grid.Column
-    className={theme.bottomColumn}
+    className={mobile ? theme.bottomColumnMobile : theme.bottomColumn}
     style={{textAlign: 'center'}}
   >
     <Header
@@ -62,12 +63,15 @@ const Tenant = ()=> (
       </List.Item>
     </List>
     <br />
-    <Button icon labelPosition='right'>
+    <Button icon labelPosition='right' className={theme.listButton}>
       <Icon name='right arrow' />
       More features for tenants
     </Button>
   </Grid.Column>
 );
+Tenant.propTypes = {
+  mobile: PropTypes.bool
+};
 
 
 export default Tenant;
