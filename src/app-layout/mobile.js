@@ -8,7 +8,7 @@ import {
   Segment,
   Sidebar
 } from 'semantic-ui-react';
-import Routes from '../app/routes';
+import Routes from '../routes';
 import Footer from './footer';
 import theme from './theme.css';
 

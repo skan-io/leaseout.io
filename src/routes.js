@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react';
 import {Route} from 'react-router-dom';
-import {createLink} from '../utils/router';
+import {createLink} from './utils/router';
 
-import Home from '../home';
+// Route imports
+import Home from './home';
+
 
 const Routes = ()=> (
   <Fragment>
@@ -13,5 +15,6 @@ const Routes = ()=> (
     />
   </Fragment>
 );
+
 
 export default Routes;

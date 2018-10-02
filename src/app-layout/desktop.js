@@ -7,7 +7,7 @@ import {
   Segment,
   Visibility
 } from 'semantic-ui-react';
-import Routes from '../app/routes';
+import Routes from '../routes';
 import Footer from './footer';
 import {document} from '../globals';
 import theme from './theme.css';
