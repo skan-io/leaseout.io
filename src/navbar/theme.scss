@@ -1,0 +1,41 @@
+.navBar-landing {
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  width: 70%;
+  max-width: 1100px;
+  min-width: 700px;
+  margin: auto;
+}
+
+.navBar-landingBrand {
+  font-weight: lighter;
+  color: white !important;
+}
+
+.navBar-landingBrand:hover {
+  color: hsla(0,0%,100%,.5) !important;
+}
+
+.navBar-brandImage {
+  margin-right: 0.5rem;
+  margin-top: -8px;
+}
+
+.navBar-landingLink {
+  font-weight: lighter;
+  color: white !important;
+}
+
+.navBar-landingLink:hover {
+  color: hsla(0,0%,100%,.5) !important;
+}
+
+.navBar-landingDropdown {
+  font-weight: lighter;
+  color: white !important;
+}
+
+.navBar-landingDropdown:hover {
+  color: hsla(0,0%,100%,.5) !important;
+}

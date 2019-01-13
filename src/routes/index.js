@@ -1,22 +1,33 @@
 import React, {Fragment} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import PrivateRoute from './private';
+import {Router, Route, Switch} from 'react-router-dom';
+import Private from './private';
+import history from '../history';
+import NavBar from '../navbar';
 
-// ROUTES:
-import Home from '../home';
-import SigninModal from '../signin/modal';
+// Routes
+import Login from './login';
+import Logout from './logout';
+import LandingApp from '../app/landing';
+import UserApp from '../app/user';
 
 
 const Routes = ()=> (
-  <BrowserRouter>
-    <Fragment>
-      <Switch>
-        <Route path={'/'} exact component={Home} />
-        <Route path={'/login'} exact component={SigninModal} />
-        <PrivateRoute path={'/profile'} exact component={Home} />
-      </Switch>
-    </Fragment>
-  </BrowserRouter>
+  <Router history={history}>
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route path="/logout" component={Logout} />
+      <Route
+        exact
+        path="/"
+        render={(props)=> <LandingApp {...props} />}
+      />
+      <Private
+        exact
+        path="/profile"
+        component={UserApp}
+      />
+    </Switch>
+  </Router>
 );
 
 export default Routes;

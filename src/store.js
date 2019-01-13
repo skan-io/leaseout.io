@@ -1,7 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {responsiveStoreEnhancer} from 'redux-responsive';
-import {sessionService} from 'redux-react-session';
 import focusEnhancer from 'refocus/enhancer';
 import {window} from './globals';
 import reducers from './reducers';
@@ -34,5 +33,3 @@ export const store = createStore(
     getReduxDevTools()
   )
 );
-
-sessionService.initSessionService(store);

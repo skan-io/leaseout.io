@@ -1,12 +1,9 @@
 import React from 'react';
-import Oidc from '../signin';
-import AppLayout from '../app-layout';
-
+import Routes from '../routes';
 
 export const App = ()=> (
   <section style={{width: '100%', height: '100%'}}>
-    <Oidc />
-    <AppLayout />
+    <Routes />
   </section>
 );
 
