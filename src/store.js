@@ -1,23 +1,19 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import {responsiveStoreEnhancer} from 'redux-responsive';
-import {createLogger} from 'redux-logger';
+import {sessionService} from 'redux-react-session';
 import focusEnhancer from 'refocus/enhancer';
 import {window} from './globals';
-import promiseMiddleware from './middlewares/promise';
 import reducers from './reducers';
 
 
-const loggerMiddleware = createLogger();
-
-
 function getReduxDevTools() {
-  const {devToolsExtension} = window;
+  const {__REDUX_DEVTOOLS_EXTENSION__} = window;
   let enhancer = (arg)=> arg;
 
   /* istanbul ignore if */
-  if (typeof devToolsExtension === 'function') {
-    enhancer = devToolsExtension();
+  if (typeof __REDUX_DEVTOOLS_EXTENSION__ === 'function') {
+    enhancer = __REDUX_DEVTOOLS_EXTENSION__();
   }
   return enhancer;
 }
@@ -32,10 +28,11 @@ export const store = createStore(
     responsiveStoreEnhancer,
     focusEnhancer,
     applyMiddleware(
-      thunkMiddleware,
-      promiseMiddleware,
-      loggerMiddleware,
+      thunkMiddleware
+      // TODO history middleware
     ),
     getReduxDevTools()
   )
 );
+
+sessionService.initSessionService(store);

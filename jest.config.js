@@ -1,41 +1,32 @@
-{
-  "setupFiles": [
-    "<rootDir>/src/testing/setup.js"
-  ],
-  "setupTestFrameworkScriptFile": "<rootDir>/src/testing/setup-framework.js",
+const config = require('@nearmap/jest-config');
 
-  "moduleNameMapper": {
-    "^.*\\.scss$": "<rootDir>/src/testing/mock-scss.js"
+module.exports = {
+  ...config,
+
+  setupFiles: [
+    ...config.setupFiles,
+    '<rootDir>/src/testing/setup.js'
+  ],
+
+  collectCoverageFrom: ['src/**/*.js', '!src/**/*.story.js'],
+
+  setupTestFrameworkScriptFile: '<rootDir>/src/testing/setup-framework.js',
+
+  moduleNameMapper: {
+    '^.*\\.scss$': '<rootDir>/src/testing/mock-scss.js'
   },
 
-  "transform": {
-    ".+\\.js$": "babel-jest",
-    "^.*\\.(png|gif)$": "<rootDir>/src/testing/mock-file.js"
+  transform: {
+    ...config.transform,
+    '^.*\\.(png|gif|svg)$': '<rootDir>/src/testing/mock-file.js'
   },
-  "transformIgnorePatterns": [
-    "<rootDir>/node_modules/(?!(oidc-client-react|refocus)/).*"
+
+  transformIgnorePatterns: [
+    '<rootDir>/node_modules/(?!(ol|oidc-client-react|refocus|cesium)/).*'
   ],
 
-  "testMatch": ["**/*.test.js"],
-  "testPathIgnorePatterns": [
-    "<rootDir>/node_modules/*",
-    "<rootDir>/build/*"
-  ],
-
-  "timers": "fake",
-  "clearMocks": true,
-  "resetMocks": false,
-
-  "collectCoverage": true,
-
-  "coverageDirectory": "./build/cov",
-  "coverageReporters": ["lcov"],
-  "coverageThreshold": {
-    "global": {
-      "branches": 100,
-      "functions": 100,
-      "lines": 100,
-      "statements": 100
-    }
+  globals: {
+    ...config.globals,
+    STORYBOOK_IMPORT_ENV: 'jest'
   }
-}
+};

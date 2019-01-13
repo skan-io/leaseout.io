@@ -1,22 +1,20 @@
 import {combineReducers} from 'redux';
 import {createResponsiveStateReducer} from 'redux-responsive';
-import focusReducer from 'refocus/reducer';
+import {sessionReducer} from 'redux-react-session';
+import focus from 'refocus/reducer';
+import oidc from './oidc-client/redux/reducer';
+import device from './device-info/reducer';
+import user from './user/reducer';
 
-// Application data reducers
-import deviceInfoReducer from './devices/reducer';
-import userReducer from './user/reducer';
-
+const browser = createResponsiveStateReducer(
+  {extraSmall: 480, small: 767, medium: 992, large: 1200}
+);
 
 export default combineReducers({
-  focus: focusReducer,
-  browser: createResponsiveStateReducer({
-    extraSmall: 480,
-    small: 767,
-    medium: 992,
-    large: 1200
-  }),
-  device: deviceInfoReducer,
-
-  // Application data reducers
-  user: userReducer
+  browser,
+  focus,
+  oidc,
+  user,
+  device,
+  session: sessionReducer
 });

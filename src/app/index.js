@@ -1,17 +1,13 @@
-import React, {Fragment} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
-import DesktopApp from '../app-layout/desktop';
-import MobileApp from '../app-layout/mobile';
+import React from 'react';
+import Oidc from '../signin';
+import AppLayout from '../app-layout';
 
 
-const App = ()=> (
-  <Router>
-    <Fragment>
-      <DesktopApp />
-      <MobileApp />
-    </Fragment>
-  </Router>
+export const App = ()=> (
+  <section style={{width: '100%', height: '100%'}}>
+    <Oidc />
+    <AppLayout />
+  </section>
 );
-
 
 export default App;

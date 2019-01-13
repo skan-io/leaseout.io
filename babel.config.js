@@ -1,4 +1,3 @@
-
 const prodBrowsers = [
   'last 2 versions',
   'not IE < 11'
@@ -15,6 +14,7 @@ module.exports = {
   plugins: [
     // Makes sure babel does not include the same code snipped in each file,
     // but imports helpers from a single module.
+    '@babel/plugin-syntax-dynamic-import',
     '@babel/plugin-transform-runtime',
     ['@babel/plugin-proposal-decorators', {legacy: true}],
     '@babel/plugin-proposal-class-properties',
@@ -49,9 +49,13 @@ module.exports = {
             node: 'current'
           }
         }]
+      ],
+      plugins: [
+        'transform-amd-to-commonjs',
+        'dynamic-import-node'
       ]
     },
-    // Default env used for webpack when e.g. running `npm start`.
+    // Default env used for webpack when e.g. running the dev server.
     // It will minimize transcompilation to target the
     // latest browsers. This should allow easier debugging.
     'webpack-dev': {

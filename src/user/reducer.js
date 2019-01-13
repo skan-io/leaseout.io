@@ -1,9 +1,19 @@
 import reducer from '../utils/reducer';
 
-
-const DefaultState = {
-  isLoggedIn: false
+export const DefaultState = {
+  signedIn: false
 };
 
+export default reducer(DefaultState, {
+  'user/sign-in': (state)=> ({
+    ...state,
+    signedIn: true,
+    requestSignIn: false
+  }),
 
-export default reducer(DefaultState, {});
+  'user/sign-out': (state)=> ({
+    ...state,
+    signedIn: false,
+    requestSignIn: true
+  })
+});
