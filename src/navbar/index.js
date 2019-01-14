@@ -1,7 +1,5 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {focus} from 'refocus/actions';
 import {
   Collapse,
   Navbar,
@@ -15,7 +13,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import {setCollapsedMenuOpen} from './actions';
 import {isAuthenticated} from '../auth';
 import favicon from '../favicon.png';
 import './theme.scss';
@@ -24,19 +21,42 @@ import './theme.scss';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {dropdownOpen: false};
+    this.state = {
+      collapsedMenuOpen: false,
+      dropdownOpen: {
+        user: false,
+        tenants: false,
+        landlords: false,
+        agents: false
+      }
+    };
   }
 
-  onMouseEnter() {
-    this.setState({dropdownOpen: true});
+  toggleCollapsedMenu() {
+    this.setState({collapsedMenuOpen: !this.state.collapsedMenuOpen});
   }
 
-  onMouseLeave() {
-    this.setState({dropdownOpen: false});
+  onMouseEnter(id) {
+    this.setState({
+      dropdownOpen: {
+        ...this.state.dropdown,
+        [id]: true
+      }
+    });
   }
 
+  onMouseLeave(id) {
+    this.setState({
+      dropdownOpen: {
+        ...this.state.dropdown,
+        [id]: false
+      }
+    });
+  }
+
+  // eslint-disable-next-line
   render() {
-    const {isLoggingIn, landing, isOpen, onToggleCollapsedMenu} = this.props;
+    const {isLoggingIn, landing} = this.props;
 
     return (
       <Fragment>
@@ -57,8 +77,11 @@ class NavBar extends React.Component {
               />
                LeasePlease
             </NavbarBrand>
-            <NavbarToggler onClick={()=> onToggleCollapsedMenu()} />
-            <Collapse data-focus='collapsed-nav' isOpen={isOpen} navbar>
+            <NavbarToggler
+              className='navBar-toggler'
+              onClick={()=> this.toggleCollapsedMenu()}
+            />
+            <Collapse isOpen={this.state.collapsedMenuOpen} navbar>
               <Nav className="ml-auto" navbar>
                 {!landing && <NavLink href='/'>Home</NavLink>}
                 <NavLink
@@ -70,10 +93,10 @@ class NavBar extends React.Component {
                 {isAuthenticated()
                 && (
                   <Dropdown
-                    onMouseEnter={()=> this.onMouseEnter()}
-                    onMouseLeave={()=> this.onMouseLeave()}
+                    onMouseEnter={()=> this.onMouseEnter('user')}
+                    onMouseLeave={()=> this.onMouseLeave('user')}
                     toggle={()=> null}
-                    isOpen={this.state.dropdownOpen}
+                    isOpen={this.state.dropdownOpen.user}
                     nav
                     inNavbar
                   >
@@ -94,10 +117,10 @@ class NavBar extends React.Component {
                 {!isAuthenticated()
                 && (
                   <Dropdown
-                    onMouseEnter={()=> this.onMouseEnter()}
-                    onMouseLeave={()=> this.onMouseLeave()}
+                    onMouseEnter={()=> this.onMouseEnter('tenants')}
+                    onMouseLeave={()=> this.onMouseLeave('tenants')}
                     toggle={()=> null}
-                    isOpen={this.state.dropdownOpen}
+                    isOpen={this.state.dropdownOpen.tenants}
                     nav
                     inNavbar
                   >
@@ -118,10 +141,10 @@ class NavBar extends React.Component {
                 {!isAuthenticated()
                 && (
                   <Dropdown
-                    onMouseEnter={()=> this.onMouseEnter()}
-                    onMouseLeave={()=> this.onMouseLeave()}
+                    onMouseEnter={()=> this.onMouseEnter('landlords')}
+                    onMouseLeave={()=> this.onMouseLeave('landlords')}
                     toggle={()=> null}
-                    isOpen={false /* TODO */}
+                    isOpen={this.state.dropdownOpen.landlords}
                     nav
                     inNavbar
                   >
@@ -142,10 +165,10 @@ class NavBar extends React.Component {
                 {!isAuthenticated()
                 && (
                   <Dropdown
-                    onMouseEnter={()=> this.onMouseEnter()}
-                    onMouseLeave={()=> this.onMouseLeave()}
+                    onMouseEnter={()=> this.onMouseEnter('agents')}
+                    onMouseLeave={()=> this.onMouseLeave('agents')}
                     toggle={()=> null}
-                    isOpen={false /* TODO */}
+                    isOpen={this.state.dropdownOpen.agents}
                     nav
                     inNavbar
                   >
@@ -191,21 +214,7 @@ class NavBar extends React.Component {
 }
 NavBar.propTypes = {
   landing: PropTypes.bool,
-  isOpen: PropTypes.bool,
-  isLoggingIn: PropTypes.bool,
-  onToggleCollapsedMenu: PropTypes.func
+  isLoggingIn: PropTypes.bool
 };
 
-const mapStateToProps = ({navbar, auth})=> ({
-  isOpen: navbar.isOpen,
-  isLoggingIn: auth.requestLogin
-});
-
-const mapDispatchToProps = (dispatch)=> ({
-  onToggleCollapsedMenu: ()=> {
-    dispatch(setCollapsedMenuOpen());
-    dispatch(focus('collapsed-nav'));
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default NavBar;

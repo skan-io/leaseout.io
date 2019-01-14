@@ -8,6 +8,24 @@
   margin: auto;
 }
 
+@media (max-width: 767px) {
+  .navBar-landing {
+    min-width: 0px;
+  }
+
+  .navbar-toggler {
+    margin-right: -16px !important;
+  }
+
+  .navbar-collapse {
+    margin-top: 60px !important;
+  }
+}
+
+.navBar-toggler:focus {
+  outline: none;
+}
+
 .navBar-landingBrand {
   font-weight: lighter;
   color: white !important;

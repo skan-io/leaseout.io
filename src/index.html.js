@@ -13,7 +13,7 @@ import theme from './index.scss';
 
 // Global css
 // import './fonts/fontawesome/all.min.css';
-// import './fonts/nucleo/nucleo.css';
+import './fonts/nucleo/css/nucleo.css';
 
 import './scss/argon.scss';
 
@@ -24,7 +24,7 @@ const containerId = 'root';
 
 const Html = ({scripts, styles, version, appUrl})=> (
   <html>
-    <head>
+    <head style={{overflowY: 'scroll', overflowX: 'hidden'}}>
       <VersionMeta version={version} />
       <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
 

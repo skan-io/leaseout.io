@@ -2,7 +2,6 @@ import React from 'react';
 import checklist from '../../checklist.png';
 import signature from '../../signature.png';
 import photo from '../../photo.png';
-import timeline from '../../timeline3.png';
 import homes from '../../homes.png';
 import './theme.scss';
 

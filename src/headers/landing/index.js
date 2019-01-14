@@ -13,8 +13,8 @@ const LandingHeader = ()=> (
       <span className={'landingHeader-fourthStripe'}></span>
       <span className={'landingHeader-fifthStripe'}></span>
     </div>
-    <Intro />
     <Illustrations />
+    <Intro />
   </div>
 );
 

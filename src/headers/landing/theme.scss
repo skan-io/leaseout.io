@@ -1,9 +1,10 @@
 .landingHeader-main {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 850px;
+  overflow: inherit;
 }
 
 .landingHeader-stripes {
@@ -73,7 +74,7 @@
 }
 
 .intro-mainSection {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 850px;
   top: 0;
@@ -127,27 +128,32 @@
 }
 
 .illustrations-mainSection {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   flex-wrap: wrap;
   width: 100%;
-  height: 850px;
+  height: 1522px;
+  overflow: inherit;
+  overflow-x: hidden;
+  min-width: 1150px;
 }
 
 .illustrations-mainContainer {
-  position: absolute;
+  position: relative;
   -webkit-transform: rotate(-12deg);
   transform: rotate(-12deg);
   flex-wrap: wrap;
-  top: 5%;
+  top: 2%;
   left: 50%;
   height: 800px;
+  min-width: 1200px;
+  max-width: 1600px;
 }
 
 .illustrations-tablet {
   margin-left: -308px;
-  margin-top: 184px;
+  margin-top: 195px;
   width: 1056px;
   height: 727px;
   display: flex;
@@ -195,8 +201,8 @@
 }
 
 .illustrations-phone {
-  margin-left: 58px;
-  margin-top: -595px;
+  margin-left: 79px;
+  margin-top: -545px;
   width: 390px;
   height: 739px;
   display: flex;
@@ -206,7 +212,7 @@
   background: #fff;
   box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 10px 20px rgba(0, 21, 64, 0.05);
   -webkit-transform: scale(0.5) rotate(0deg) translateX(50px);
-  transform: scale(0.5) rotate(-94deg) translateX(50px);
+  transform: scale(0.5) rotate(-4deg) translateX(50px);
 }
 
 .illustrations-phoneImg {
@@ -221,7 +227,7 @@
 
 .illustrations-phone2 {
   margin-left: 280px;
-  margin-top: -1490px;
+  margin-top: -1558px;
   width: 504px;
   height: 866px;
   display: flex;

@@ -114,7 +114,7 @@ export default ()=> {
         ]
       },
       {
-        test: /\.(png|jpg|svg|ico|gif|ttf|eot|woff|woff2)$/,
+        test: /\.(png|jpg|jpeg|svg|ico|gif|ttf|eot|woff|woff2)$/,
         loader: 'url-loader?limit=10000'
       }, {
         test: /\.jsx?$/,

@@ -1,10 +1,14 @@
 import React, {Fragment} from 'react';
-import Header from '../../headers/landing';
+import LandingHeader from '../../headers/landing';
+import LandingContent from '../../content/landing';
+import LandingFooter from '../../footers/landing';
 
 
 const LandingAppLayout = ()=> (
   <Fragment>
-    <Header />
+    <LandingHeader />
+    <LandingContent />
+    <LandingFooter />
   </Fragment>
 );
 
