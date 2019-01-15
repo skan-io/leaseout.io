@@ -1,0 +1,89 @@
+service: profile-service
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: ap-southeast-2
+  environment:
+    PROFILE_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    PROFILE_EMAIL_TABLE: "profile-email-${opt:stage, self:provider.stage}"
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
+        - dynamodb:UpdateItem
+      Resource: "*"
+
+functions:
+  create:
+    handler: api/create.handler
+    memorySize: 128
+    description: Submit new profile information.
+    events:
+      - http:
+          path: profiles
+          method: post
+
+  list:
+    handler: api/list.handler
+    memorySize: 128
+    description: List all profiles.
+    events:
+      - http:
+          path: profiles
+          method: get
+
+  delete:
+    handler: api/delete.handler
+    memorySize: 128
+    description: Delete a profile by id.
+    events:
+      - http:
+          path: profiles/{id}
+          method: delete
+
+  get:
+    handler: api/get.handler
+    memorySize: 128
+    description: Get a profile by id.
+    events:
+      - http:
+          path: profiles/{id}
+          method: get
+
+  update:
+    handler: api/update.handler
+    memorySize: 128
+    description: Update a profile by id.
+    events:
+      - http:
+          path: profiles/{id}
+          method: put
+
+resources:
+  Resources:
+    ProfilesDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: "id"
+            AttributeType: "S"
+        KeySchema:
+          -
+            AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        StreamSpecification:
+          StreamViewType: "NEW_AND_OLD_IMAGES"
+        TableName: ${self:provider.environment.PROFILE_TABLE}

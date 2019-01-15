@@ -109,5 +109,6 @@
   "bugs": {
     "url": "https://github.com/skan-io/leaseout.io/issues"
   },
-  "homepage": "https://github.com/skan-io/leaseout.io#readme"
+  "homepage": "https://github.com/skan-io/leaseout.io#readme",
+  "dependencies": {}
 }

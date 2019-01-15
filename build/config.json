@@ -1,8 +1,8 @@
 {
-  "version": "dev-eecc81b-20190114012617312",
+  "version": "dev-3f6ac77-20190114075833587",
   "nodeEnv": "webpack-dev",
   "deployEnv": "localhost",
   "deployPath": "manage",
   "deployUrl": "https://localhost/manage/",
-  "artifactPath": ".pkg/manage/dev-eecc81b-20190114012617312"
+  "artifactPath": ".pkg/manage/dev-3f6ac77-20190114075833587"
 }
