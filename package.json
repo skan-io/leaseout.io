@@ -31,6 +31,8 @@
     "@storybook/react": "^4.0.11",
     "auth0-lock": "11.12.1",
     "autoprefixer": "^9.4.2",
+    "aws-amplify": "1.1.19",
+    "aws-amplify-react": "2.3.0",
     "aws-sdk": "^2.369.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -44,6 +46,7 @@
     "custom-event-polyfill": "^1.0.6",
     "date-fns": "^1.30.1",
     "dateformat": "^3.0.3",
+    "email-validator": "2.0.4",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "^5.9.0",
@@ -51,6 +54,7 @@
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "file-saver": "^2.0.0",
+    "html-webpack-plugin": "3.2.0",
     "jest-cli": "^23.5.0",
     "jwt-decode": "2.2.0",
     "mime-types": "^2.1.21",
@@ -60,13 +64,13 @@
     "node-sass": "^4.10.0",
     "npx-run": "^2.1.2",
     "oidc-client": "1.6.1",
+    "password-validator": "4.1.1",
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-device": "^0.8.1",
     "react-dom": "^16.6.3",
-    "react-entry-loader": "^2.2.4",
     "react-redux": "^5.1.1",
     "react-router-dom": "4.3.1",
     "react-spinkit": "3.0.0",
@@ -110,5 +114,7 @@
     "url": "https://github.com/skan-io/leaseout.io/issues"
   },
   "homepage": "https://github.com/skan-io/leaseout.io#readme",
-  "dependencies": {}
+  "dependencies": {
+    "react-intl-tel-input": "6.1.0"
+  }
 }

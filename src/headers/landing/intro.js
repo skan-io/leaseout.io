@@ -21,7 +21,7 @@ const Intro = ()=> (
         including documents, photos, signatures and tracking timeline.
       </h3>
       <Button
-        href='/login'
+        href='/signup'
         className='intro-introButton' color="success">GET STARTED
       </Button>
     </div>

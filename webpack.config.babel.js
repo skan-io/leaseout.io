@@ -1,8 +1,7 @@
 /* eslint-env node */
 /* eslint no-console: 0 */
 import {resolve, relative} from 'path';
-import ReactEntryLoaderPlugin from 'react-entry-loader/plugin';
-import reactEntry from 'react-entry-loader/entry';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
@@ -24,22 +23,11 @@ export default ()=> {
   return {
     mode: isProduction ? 'production' : 'development',
     entry: {
-      app: [
-        '@babel/polyfill',
-        reactEntry({
-          output: 'index.html',
-          appUrl,
-          version
-        })('./src/index.html.js')
-      ],
-      silent: [
-        '@babel/polyfill',
-        reactEntry({output: 'silent_renew.html'})('./src/silent_renew.html.js')
-      ]
+      app: ['@babel/polyfill', 'whatwg-fetch', './src/index.js']
     },
 
     output: {
-      path: resolve(__dirname, 'build/pkg'),
+      path: resolve(__dirname, 'build'),
       filename: '[name]-[contenthash].js',
       // improve paths in devtools
       devtoolModuleFilenameTemplate: (info)=> (
@@ -49,10 +37,12 @@ export default ()=> {
 
     optimization: {
       minimize: isProduction,
-      runtimeChunk: {name: 'runtime'},
+      runtimeChunk: {
+        name: 'manifest'
+      },
       splitChunks: {
-        chunks: 'all',
-        name: !isProduction,
+        chunks: 'async',
+        name: false,
         cacheGroups: {
           default: false,
           react: {
@@ -65,8 +55,22 @@ export default ()=> {
     },
 
     plugins: [
-      new ReactEntryLoaderPlugin(),
-      new CopyWebpackPlugin([{from: 'src/share-img.png'}]),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        minify: {
+          removeComments: isProduction,
+          collapseWhitespace: isProduction
+        },
+        favicon: './src/favicon.png',
+        buildCommit: version,
+        deployPath,
+        appUrl,
+        filename: 'index.html',
+        // NOTE: dont forget to include all cache groups here..
+        chunks: ['manifest', 'react', 'app'],
+        chunksSortMode: 'manual',
+        cache: false
+      }),
       new CopyWebpackPlugin([{from: 'src/favicon.png'}]),
       new MiniCssExtractPlugin({chunkFilename: '[name]-[contenthash].css'})
     ],

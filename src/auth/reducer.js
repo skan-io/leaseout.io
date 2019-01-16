@@ -1,12 +1,14 @@
 import reducer from '../utils/reducer';
+import {AUTH_STATES} from './auth-states';
+
 
 export const DefaultState = {
-  requestLogin: false
+  authentication: AUTH_STATES.unauthenticated
 };
 
 export default reducer(DefaultState, {
-  'auth/request-login': (state)=> ({
+  'auth/set': (state, {value})=> ({
     ...state,
-    requestLogin: !state.requestLogin
+    authentication: value
   })
 });

@@ -1,5 +1,5 @@
 
-
-export const requestLogin = ()=> ({
-  type: 'auth/request-login'
+export const setAuth = (state)=> ({
+  type: 'auth/set',
+  value: state
 });

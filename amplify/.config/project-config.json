@@ -1,0 +1,20 @@
+{
+    "projectName": "leaseoutio",
+    "projectPath": "/Users/nicholasmanks/Work/leaseout.io",
+    "defaultEditor": "atom",
+    "frontendHandler": {
+        "javascript": "/Users/nicholasmanks/.nvm/versions/node/v10.13.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npx run build",
+            "StartCommand": "npx run"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/Users/nicholasmanks/.nvm/versions/node/v10.13.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

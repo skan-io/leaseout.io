@@ -118,7 +118,7 @@ class Example extends React.Component {
                   {`"${item.quote}"`}
                 </p>
                 <footer className="blockquote-footer">{item.role}
-                  <cite title="Source Title">{item.company}</cite>
+                  <cite title="Source Title">,&nbsp; {item.company}</cite>
                 </footer>
               </blockquote>
             </div>

@@ -1,12 +1,13 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {Router, Route, Switch} from 'react-router-dom';
 import Private from './private';
 import history from '../history';
-import NavBar from '../navbar';
 
 // Routes
-import Login from './login';
-import Logout from './logout';
+import Signup from '../signup';
+import Signin from '../signin';
+import Signout from '../signout';
+import PrivacyPolicy from '../privacy';
 import LandingApp from '../app/landing';
 import UserApp from '../app/user';
 
@@ -14,8 +15,10 @@ import UserApp from '../app/user';
 const Routes = ()=> (
   <Router history={history}>
     <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/logout" component={Logout} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/signout" component={Signout} />
+      <Route path="/privacy" component={PrivacyPolicy} />
       <Route
         exact
         path="/"

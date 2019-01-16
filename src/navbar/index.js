@@ -13,9 +13,12 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import {isAuthenticated} from '../auth';
 import favicon from '../favicon.png';
 import './theme.scss';
+
+
+// TODO
+const isAuthenticated = ()=> false;
 
 
 class NavBar extends React.Component {
@@ -197,7 +200,7 @@ class NavBar extends React.Component {
                     : (
                       <NavLink
                         className={landing ? 'navBar-landingLink' : ''}
-                        href='/login'
+                        href='/signin'
                       >
                       Sign In →
                       </NavLink>
