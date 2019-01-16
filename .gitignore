@@ -10,3 +10,10 @@ npm-debug.log
 .idea
 .DS_Store
 .vscode
+
+# Build artifacts
+build
+
+# Amplify artifacts
+amplify
+src/aws-exports.js
