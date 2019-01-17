@@ -18,7 +18,7 @@ const Signup = ({location})=> (
                 <p
                   className="text-lead text-light"
                 >
-                Sign up to LeasePlease to start managing your lease.
+                Sign up to LeaseGenius to start managing your lease.
                 </p>
               </div>
             </div>

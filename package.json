@@ -29,7 +29,6 @@
     "@storybook/addon-storyshots": "^4.0.11",
     "@storybook/addons": "^4.0.11",
     "@storybook/react": "^4.0.11",
-    "auth0-lock": "11.12.1",
     "autoprefixer": "^9.4.2",
     "aws-amplify": "1.1.19",
     "aws-amplify-react": "2.3.0",

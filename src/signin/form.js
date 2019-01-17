@@ -17,12 +17,14 @@ class SigninForm extends React.Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       inputAlert: {status: false, message: ''},
       hasSignedin: false,
       pendingInitial: true
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentDidMount() {
@@ -51,13 +53,14 @@ class SigninForm extends React.Component {
   }
 
   // eslint-disable-next-line
-  async handleSubmit() {
-    const {username, password} = this.state;
+  async handleSubmit(evt) {
+    evt.preventDefault();
+    const {email, password} = this.state;
     const {onSignInPending, onSignInSuccess, onSignInFailed} = this.props;
 
     try {
       onSignInPending();
-      const user = await Auth.signIn({username, password});
+      const user = await Auth.signIn({username: email, password});
       onSignInSuccess(user);
       this.setState({hasSignedin: true});
     } catch (err) {
@@ -125,7 +128,7 @@ class SigninForm extends React.Component {
                       <div className="text-center text-muted mb-4">
                         <small>Or sign in with credentials</small>
                       </div>
-                      <form role="form">
+                      <form role="form" onSubmit={this.handleSubmit}>
                         {(!hasSignedin && inputAlert.status) &&
                           <div className="alert alert-danger" role="alert">
                             <strong>Warning!</strong> {inputAlert.message}
@@ -142,9 +145,9 @@ class SigninForm extends React.Component {
                             </div>
                             <input
                               className="form-control"
-                              name="username"
-                              placeholder="Username"
-                              type="text"
+                              name="email"
+                              placeholder="Email"
+                              type="email"
                               onChange={(evt)=> this.handleChange(evt)}
                             />
                           </div>
@@ -167,9 +170,8 @@ class SigninForm extends React.Component {
                         </div>
                         <div className="text-center">
                           <button
-                            type="button"
+                            type="submit"
                             className="btn btn-primary mt-4"
-                            onClick={()=> this.handleSubmit()}
                           >
                           Sign in
                           </button>
@@ -203,7 +205,7 @@ const mapDispatchToProps = (dispatch)=> ({
     dispatch(setAuth(AUTH_STATES.pending));
   },
   onSignInSuccess(user) {
-    dispatch(setUser(user));
+    // dispatch(setUser(user));
     dispatch(setAuth(AUTH_STATES.authenticated));
   },
   onSignInFailed() {

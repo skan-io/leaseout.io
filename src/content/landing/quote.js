@@ -23,21 +23,21 @@ const shuffleArray = (array)=> {
 const items = shuffleArray([
   {
     src: person5,
-    quote: 'LeasePlease has streamlined my day by making it simple to find the right tenant',
+    quote: 'LeaseGenius has streamlined my day by making it simple to find the right tenant',
     quoteBy: 'Fiona Üterall',
     role: 'Property Manager',
     company: 'Belle Properties'
   },
   {
     src: person1,
-    quote: 'I guess maybe its the way I look, but until LeasePlease no one believed my perfect rental record',
+    quote: 'I guess maybe its the way I look, but until LeaseGenius no one believed my perfect rental record',
     quoteBy: 'Sam Johnston',
     role: 'Photographer',
     company: 'The Independent'
   },
   {
     src: person4,
-    quote: 'I reccomend to everyone who I see in mediation to get a LeasePlease account, it makes everything so much easier.',
+    quote: 'I reccomend to everyone who I see in mediation to get a LeaseGenius account, it makes everything so much easier.',
     quoteBy: 'Michael Lewis',
     role: 'Senior Arbitrator',
     company: 'NSW Tenancy Tribunal'

@@ -21,9 +21,9 @@ const SecurityMeta = ({appUrl})=> (
     //     default-src
     //      'self'
     //       ws:
-    //       *.leaseplease.com
+    //       *.leasegenius.com.au
     //       *.auth0.com
-    //       ${isDevelopment(appUrl) ? '*.leaseplease.com' : ''};
+    //       ${isDevelopment(appUrl) ? '*.leasegenius.com.au' : ''};
     //     script-src
     //       'self'
     //       'unsafe-inline'
@@ -32,7 +32,7 @@ const SecurityMeta = ({appUrl})=> (
     //       'self'
     //       blob:
     //       data:
-    //       *.leaseplease.com
+    //       *.leasegenius.com.au
     //       *.auth0.com
     //       www.google-analytics.com
     //     style-src 'self' 'unsafe-inline' fonts.googleapis.com;

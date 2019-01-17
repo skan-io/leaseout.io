@@ -78,7 +78,7 @@ class NavBar extends React.Component {
                 className={'navBar-brandImage'}
                 src={favicon} width="30"
               />
-               LeasePlease
+               LeaseGenius
             </NavbarBrand>
             <NavbarToggler
               className='navBar-toggler'

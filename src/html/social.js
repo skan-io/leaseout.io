@@ -7,7 +7,7 @@ const SocialMeta =({title, appUrl, description})=> (
   <Fragment>
     <title>{title}</title>
 
-    <meta name="author" content="leaseplease.com" />
+    <meta name="author" content="leasegenius.com.au" />
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta
@@ -22,7 +22,7 @@ const SocialMeta =({title, appUrl, description})=> (
 
     {/* Open Graph data */}
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="leaseplease.com" />
+    <meta property="og:site_name" content="leasegenius.com.au" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
 
@@ -36,7 +36,7 @@ const SocialMeta =({title, appUrl, description})=> (
 
     <meta name="robots" content="all" />
     <meta name="rating" content="General" />
-    <meta name="copyright" content="&copy; leaseplease.com" />
+    <meta name="copyright" content="&copy; leasegenius.com.au" />
 
     {/* Disables the ability for the pinterest plugin to save images */}
     <meta name="pinterest" content="nopin" />

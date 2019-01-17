@@ -8,7 +8,7 @@ const SignupFooter = ()=> (
         <div className="col-xl-6">
           <div className="copyright text-center text-xl-left text-muted">
             &copy; 2019
-            <a href="/" className="font-weight-bold ml-1">LeasePlease.com</a>
+            <a href="/" className="font-weight-bold ml-1">LeaseGenius.com.au</a>
           </div>
         </div>
         <div className="col-xl-6">

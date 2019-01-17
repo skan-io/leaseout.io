@@ -16,7 +16,7 @@ const Intro = ()=> (
         The new way to manage your lease
       </h1>
       <h3 className='intro-introText'>
-        LeasePlease is the best software platform for managing, maintaining and
+        LeaseGenius is the best software platform for managing, maintaining and
         processing leases.  We handle all parts of the lease process for you,
         including documents, photos, signatures and tracking timeline.
       </h3>

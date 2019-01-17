@@ -61,7 +61,7 @@ export default ()=> {
           removeComments: isProduction,
           collapseWhitespace: isProduction
         },
-        favicon: './src/favicon.png',
+        favicon: './src/brand.png',
         buildCommit: version,
         deployPath,
         appUrl,
@@ -71,7 +71,7 @@ export default ()=> {
         chunksSortMode: 'manual',
         cache: false
       }),
-      new CopyWebpackPlugin([{from: 'src/favicon.png'}]),
+      new CopyWebpackPlugin([{from: 'src/brand.png'}]),
       new MiniCssExtractPlugin({chunkFilename: '[name]-[contenthash].css'})
     ],
 

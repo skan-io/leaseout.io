@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "leaseoutio-20190117091313-authRole",
+            "UnauthRoleArn": "arn:aws:iam::981978399197:role/leaseoutio-20190117091313-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::981978399197:role/leaseoutio-20190117091313-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "leaseoutio-20190117091313-deployment",
+            "UnauthRoleName": "leaseoutio-20190117091313-unauthRole",
+            "StackName": "leaseoutio-20190117091313",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:981978399197:stack/leaseoutio-20190117091313/4c867970-19e4-11e9-ad4b-0a0d95b46214"
+        }
+    }
+}

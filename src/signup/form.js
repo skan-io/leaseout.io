@@ -10,11 +10,17 @@ import {
   getPasswordStrengthClassname,
   parsePhoneNumber
 } from '../signin/utils';
+import {
+  getSession,
+  deleteSession,
+  setSessionVariable,
+  getSessionVariable
+} from '../auth/session';
 import githubSVG from '../logos/github.svg';
 import googleSVG from '../logos/google.svg';
 
 
-const MIN_USERNAME_LENGTH = 5;
+const MIN_NAME_LENGTH = 2;
 
 
 class SignupForm extends React.Component {
@@ -22,7 +28,8 @@ class SignupForm extends React.Component {
     super(props);
 
     this.state = {
-      username: '',
+      firstname: '',
+      lastname: '',
       password: '',
       email: '',
       phoneNumber: {status: false, value: '', country: {}},
@@ -33,6 +40,9 @@ class SignupForm extends React.Component {
       hasSignedUp: false,
       hasVerified: false
     };
+
+    this.handleSignup = this.handleSignup.bind(this);
+    this.handleConfirmation = this.handleConfirmation.bind(this);
   }
 
   handleChange(evt) {
@@ -49,48 +59,14 @@ class SignupForm extends React.Component {
     this.setState({phoneNumber: {status, value, country}});
   }
 
-  // eslint-disable-next-line
-  async handleSubmit() {
+  validate() {
     const {
-      username, password, email, phoneNumber, privacyCheck, hasSignedUp,
-      confirmationCode
+      firstname, lastname, password, email, phoneNumber, privacyCheck
     } = this.state;
 
-    this.setState({
-      privacyAlert: false,
-      inputAlert: {
-        status: false,
-        message: ''
-      }
-    });
-
-    if (hasSignedUp) {
-      try {
-        await Auth.confirmSignUp(username, confirmationCode);
-        this.setState({hasVerified: true});
-        return;
-      } catch (err) {
-        if (err.code === 'CodeMismatchException') {
-          this.setState({
-            inputAlert: {
-              status: true,
-              message: 'Invalid code.'
-            }
-          });
-        } else {
-          this.setState({
-            inputAlert: {
-              status: true,
-              message: 'Unknown error.'
-            }
-          });
-        }
-        return;
-      }
-    }
-
     if (
-      username.length <= MIN_USERNAME_LENGTH
+      firstname.length <= MIN_NAME_LENGTH
+      || lastname.length <= MIN_NAME_LENGTH
       || !passwordValidator.validate(password)
       || !emailValidator(email)
       || !phoneNumber.status
@@ -101,48 +77,130 @@ class SignupForm extends React.Component {
           message: 'Some fields are not valid.'
         }
       });
-      return;
+      return false;
     }
 
     if (!privacyCheck) {
       this.setState({privacyAlert: true});
+      return false;
+    }
+
+    return true;
+  }
+
+  resetAlerts() {
+    this.setState({
+      privacyAlert: false,
+      inputAlert: {
+        status: false,
+        message: ''
+      }
+    });
+  }
+
+  setSession(user) {
+    const {email} = this.state;
+
+    setSessionVariable('currentUser', 'id', user.userSub);
+    setSessionVariable(user.userSub, 'hasSignedUp', true);
+    setSessionVariable(user.userSub, 'email', email);
+  }
+
+  getSession() {
+    const sub = getSessionVariable('currentUser', 'id');
+    return getSession(sub);
+  }
+
+  removeSession() {
+    const sub = getSessionVariable('currentUser', 'id');
+    deleteSession(sub);
+    deleteSession('currentUser');
+  }
+
+  async attemptSignup() {
+    const {firstname, lastname, password, email, phoneNumber} = this.state;
+
+    try {
+      const user = await Auth.signUp({
+        username: email,
+        email,
+        password,
+        attributes: {
+          email,
+          ['given_name']: firstname,
+          ['family_name']: lastname,
+          ['phone_number']: parsePhoneNumber(phoneNumber)
+        }
+      });
+
+      this.setState({hasSignedUp: true});
+      this.setSession(user);
+    } catch (err) {
+      if (err.code === 'UsernameExistsException') {
+        this.setState({
+          inputAlert: {
+            status: true, message: 'User already exists.'
+          }
+        });
+      } else {
+        this.setState({
+          inputAlert: {
+            status: true, message: 'Could not sign up.'
+          }
+        });
+      }
+    }
+  }
+
+  async handleSignup(evt) {
+    evt.preventDefault();
+
+    this.resetAlerts();
+
+    if (!this.validate()) {
       return;
     }
 
-    if (!hasSignedUp) {
-      try {
-        await Auth.signUp({
-          username,
-          password,
-          attributes: {
-            email,
-            ['phone_number']: parsePhoneNumber(phoneNumber)
+    await this.attemptSignup();
+  }
+
+  // eslint-disable-next-line
+  async handleConfirmation(evt) {
+    evt.preventDefault();
+
+    const {confirmationCode} = this.state;
+    const {email} = this.getSession();
+
+    try {
+      await Auth.confirmSignUp(email, confirmationCode);
+      this.setState({hasVerified: true});
+      this.removeSession();
+      return;
+    } catch (err) {
+      if (err.code === 'CodeMismatchException') {
+        this.setState({
+          inputAlert: {
+            status: true,
+            message: 'Invalid code.'
           }
         });
-
-        this.setState({hasSignedUp: true});
-      } catch (err) {
-        console.log(err);
-        if (err.code === 'UsernameExistsException') {
-          this.setState({
-            inputAlert: {
-              status: true, message: 'User already exists.'
-            }
-          });
-        } else {
-          this.setState({
-            inputAlert: {
-              status: true, message: 'Unknown error.'
-            }
-          });
-        }
+      } else {
+        this.setState({
+          inputAlert: {
+            status: true,
+            message: 'Unknown error.'
+          }
+        });
       }
+      return;
     }
   }
 
   render() {
     const {hasSignedUp, privacyAlert, inputAlert, hasVerified} = this.state;
     const {location} = this.props;
+    const session = this.getSession();
+    const sessionSignup = session ? session.hasSignedUp : false;
 
     return (
       <Fragment>
@@ -160,7 +218,7 @@ class SignupForm extends React.Component {
               <div className="col-lg-6 col-md-8">
                 <div className="card bg-secondary shadow border-0">
                   <div className="card-header bg-transparent pb-5">
-                    {hasSignedUp
+                    {hasSignedUp || sessionSignup
                       ? (
                         <Fragment>
                           <div className="text-muted text-center mt-2 mb-4">
@@ -195,9 +253,9 @@ class SignupForm extends React.Component {
                     }
                   </div>
                   <div className="card-body px-lg-5 py-lg-5">
-                    {hasSignedUp
+                    {hasSignedUp || sessionSignup
                       ? (
-                        <form role="form">
+                        <form role="form" onSubmit={this.handleConfirmation}>
                           {(hasSignedUp && inputAlert.status) &&
                             <div className="alert alert-danger" role="alert">
                               <strong>Warning!</strong> {inputAlert.message}
@@ -221,9 +279,8 @@ class SignupForm extends React.Component {
                           </div>
                           <div className="text-center">
                             <button
-                              type="button"
+                              type="submit"
                               className="btn btn-primary mt-4"
-                              onClick={()=> this.handleSubmit()}
                             >
                             Verify
                             </button>
@@ -235,7 +292,7 @@ class SignupForm extends React.Component {
                           <div className="text-center text-muted mb-4">
                             <small>Or sign up with credentials</small>
                           </div>
-                          <form role="form">
+                          <form role="form" onSubmit={this.handleSignup}>
                             {(!hasSignedUp && inputAlert.status) &&
                               <div className="alert alert-danger" role="alert">
                                 <strong>Warning!</strong> {inputAlert.message}
@@ -252,9 +309,45 @@ class SignupForm extends React.Component {
                                 </div>
                                 <input
                                   className="form-control"
-                                  name="username"
-                                  placeholder="Username"
+                                  name="firstname"
+                                  placeholder="First Name"
                                   type="text"
+                                  onChange={(evt)=> this.handleChange(evt)}
+                                />
+                              </div>
+                            </div>
+                            <div className="form-group">
+                              <div
+                                className="input-group input-group-alternative mb-3"
+                              >
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text">
+                                    <i className="ni ni-circle-08"></i>
+                                  </span>
+                                </div>
+                                <input
+                                  className="form-control"
+                                  name="lastname"
+                                  placeholder="Last Name"
+                                  type="text"
+                                  onChange={(evt)=> this.handleChange(evt)}
+                                />
+                              </div>
+                            </div>
+                            <div className="form-group">
+                              <div
+                                className="input-group input-group-alternative mb-3"
+                              >
+                                <div className="input-group-prepend">
+                                  <span className="input-group-text">
+                                    <i className="ni ni-email-83"></i>
+                                  </span>
+                                </div>
+                                <input
+                                  className="form-control"
+                                  name="email"
+                                  placeholder="Email"
+                                  type="email"
                                   onChange={(evt)=> this.handleChange(evt)}
                                 />
                               </div>
@@ -298,24 +391,6 @@ class SignupForm extends React.Component {
                                 <br />
                               </div>
                             }
-                            <div className="form-group">
-                              <div
-                                className="input-group input-group-alternative mb-3"
-                              >
-                                <div className="input-group-prepend">
-                                  <span className="input-group-text">
-                                    <i className="ni ni-email-83"></i>
-                                  </span>
-                                </div>
-                                <input
-                                  className="form-control"
-                                  name="email"
-                                  placeholder="Email"
-                                  type="email"
-                                  onChange={(evt)=> this.handleChange(evt)}
-                                />
-                              </div>
-                            </div>
                             <div className="form-group">
                               <div className="input-group input-group-alternative">
                                 <IntlTelInput
@@ -368,9 +443,8 @@ class SignupForm extends React.Component {
                                 </div>
                               }
                               <button
-                                type="button"
+                                type="submit"
                                 className="btn btn-primary mt-4"
-                                onClick={()=> this.handleSubmit()}
                               >
                               Create account
                               </button>

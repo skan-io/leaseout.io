@@ -31,7 +31,7 @@ const getDeploymentEnv = async (argv)=> {
   const [deployEnv, deployPath] = argv['deploy-env'].split('/');
 
   if (deployEnv === 'auto') {
-    return {deployEnv: `www.leaseplease.com`, deployPath: 'manage'};
+    return {deployEnv: `www.leasegenius.com.au`, deployPath: 'manage'};
   }
 
   return {deployEnv, deployPath: deployPath || 'manage'};
@@ -47,7 +47,7 @@ const main = async (process)=> {
     })
     .option('deploy-env', {
       describe: 'The environment to deploy to.',
-      default: 'www.leaseplease.com/manage'
+      default: 'www.leasegenius.com.au/manage'
     })
     .options('node-env', {
       describe: 'The env to used by babel and webpack for building code.',

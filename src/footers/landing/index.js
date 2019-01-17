@@ -9,7 +9,7 @@ const LandingFooter = ()=> (
         <div className="col-xl-6">
           <div className="copyright text-center text-xl-left text-muted">
             © 2019 <a href="/" className="font-weight-bold ml-1">
-            LeasePlease.com
+            LeaseGenius.com.au
             </a>
           </div>
         </div>
